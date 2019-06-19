@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Default form group -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <form class="text-center border border-light p-5" th:action="${status}==1 ? @{/update(id=${article.id})}:postarticle" method="post" enctype="multipart/form-data" th:object="${article}">
+                <p class="h2 mb-4" style="color: purple"​​ th:text="#{addNewArticle}"></p>
+
+                <input type="text" id="id" class="form-control mb-4" placeholder="Id" th:field="*{id}">
+                <input type="text" id="title" class="form-control mb-4" placeholder="Title" th:field="*{title}">
+                <input type="text" id="author" class="form-control mb-4" placeholder="Author" th:field="*{author}">
+                <input type="text" id="description" class="form-control mb-4" placeholder="Description" th:field="*{description}">
+                <div class="form-group">
+                    <label for="file" th:text="#{image}"><b></b></label>
+                    <input type="file" class="form-control" th:field="*{pictureObject}">
+                </div>
+                    <input type="submit" class="btn btn-primary" value="Add New">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
